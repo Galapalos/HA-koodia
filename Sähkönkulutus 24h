@@ -1,0 +1,33 @@
+type: custom:apexcharts-card
+cache: false
+show:
+  last_updated: true
+update_interval: 15min
+graph_span: 24h
+stacked: true
+header:
+  show: true
+  title: Sähkönkulutus edelliset 24h
+  colorize_states: false
+all_series_config:
+  stroke_width: 1
+  opacity: 0.2
+  type: area
+  curve: smooth
+  group_by:
+    func: max
+  show:
+    legend_value: false
+series:
+  - entity: sensor.maalampo_kulutus_tunnissa
+    name: Maalämpö
+    color: red
+  - entity: sensor.latausaseman_kulutus_tunnissa
+    name: Auton lataus
+    color: green
+  - entity: sensor.pyykinpesukone_kulutus_tunnissa
+    name: Pesukone
+    color: orange
+  - entity: sensor.sahkon_yleiskulutus_tunnissa
+    name: Muu yleiskulutus
+    color: blue
