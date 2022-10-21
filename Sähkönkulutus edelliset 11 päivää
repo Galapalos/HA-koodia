@@ -1,0 +1,34 @@
+type: custom:apexcharts-card
+cache: false
+show:
+  last_updated: true
+update_interval: 1h
+graph_span: 1week
+stacked: true
+header:
+  show: true
+  title: Sähkönkulutus edelliset 11 päivää
+  colorize_states: false
+all_series_config:
+  stroke_width: 1
+  opacity: 0.2
+  type: area
+  curve: smooth
+  group_by:
+    duration: 1d
+    func: max
+  show:
+    legend_value: false
+series:
+  - entity: sensor.maalampo_kulutus_paivassa
+    name: Maalämpö
+    color: red
+  - entity: sensor.latausaseman_kulutus_paivassa
+    name: Auton lataus
+    color: green
+  - entity: sensor.pyykinpesukone_kulutus_paivassa
+    name: Pesukone
+    color: orange
+  - entity: sensor.sahkon_yleiskulutus_paivassa
+    name: yleiskulutus
+    color: blue
